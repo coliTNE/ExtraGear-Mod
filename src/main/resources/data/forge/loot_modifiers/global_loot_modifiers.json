@@ -2,6 +2,7 @@
   "replace": false,
   "entries": [
     "tempered:require_axe_for_logs",
-    "tempered:replace_stick_with_branch"
+    "tempered:replace_stick_with_branch",
+    "tempered:grass_drops_fiber"
   ]
 }

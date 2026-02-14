@@ -21,6 +21,10 @@ public class ModLootModifiers {
             LOOT_MODIFIER_SERIALIZERS.register("replace_stick_with_branch",
                     ReplaceStickWithBranchModifier.CODEC);
 
+    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> GRASS_DROPS_FIBER =
+            LOOT_MODIFIER_SERIALIZERS.register("grass_drops_fiber",
+                    GrassDropsFiberModifier.CODEC);
+
     public static void register(IEventBus eventBus) {
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
