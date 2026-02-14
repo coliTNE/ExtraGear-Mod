@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LL",
+    "LL"
+  ],
+  "key": {
+    "L": { "item": "tempered:log_chunk" }
+  },
+  "result": {
+    "item": "tempered:primitive_crafting_table",
+    "count": 1
+  }
+}

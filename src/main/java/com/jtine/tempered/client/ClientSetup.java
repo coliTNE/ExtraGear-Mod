@@ -2,8 +2,11 @@ package com.jtine.tempered.client;
 
 import com.jtine.tempered.Tempered;
 import com.jtine.tempered.client.renderer.ObsidianArrowRenderer;
+import com.jtine.tempered.client.screen.PrimitiveCraftingScreen;
 import com.jtine.tempered.registry.ModEntities;
 import com.jtine.tempered.registry.ModItems;
+import com.jtine.tempered.registry.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +28,9 @@ public class ClientSetup {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            // Register menu screen for primitive crafting table
+            MenuScreens.register(ModMenuTypes.PRIMITIVE_CRAFTING.get(), PrimitiveCraftingScreen::new);
+
             // "pulling" = 1.0 when the player is actively charging the sling
             ItemProperties.register(ModItems.PRIMITIVE_SLING.get(),
                     new ResourceLocation("pulling"),

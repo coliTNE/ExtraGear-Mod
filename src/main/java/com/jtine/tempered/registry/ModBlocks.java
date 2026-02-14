@@ -2,6 +2,7 @@ package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
 import com.jtine.tempered.block.LooseItemBlock;
+import com.jtine.tempered.block.PrimitiveCraftingTableBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -42,7 +43,18 @@ public class ModBlocks {
                     .sound(SoundType.WOOD)
                     .pushReaction(PushReaction.DESTROY)));
 
+    // Primitive crafting table: 3x2 crafting grid
+    public static final RegistryObject<Block> PRIMITIVE_CRAFTING_TABLE = BLOCKS.register("primitive_crafting_table",
+            () -> new PrimitiveCraftingTableBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.WOOD)
+                    .strength(2.0f)
+                    .sound(SoundType.WOOD)
+                    .noOcclusion()));
+
     // Block items (for creative tab)
+    public static final RegistryObject<Item> PRIMITIVE_CRAFTING_TABLE_ITEM = BLOCK_ITEMS.register("primitive_crafting_table",
+            () -> new BlockItem(PRIMITIVE_CRAFTING_TABLE.get(), new Item.Properties()));
+
     public static final RegistryObject<Item> PEBBLE_ITEM = BLOCK_ITEMS.register("pebble_block",
             () -> new BlockItem(PEBBLE.get(), new Item.Properties()));
 

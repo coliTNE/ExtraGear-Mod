@@ -3,6 +3,7 @@
   "entries": [
     "tempered:require_axe_for_logs",
     "tempered:replace_stick_with_branch",
-    "tempered:grass_drops_fiber"
+    "tempered:grass_drops_fiber",
+    "tempered:leaf_drops_fiber"
   ]
 }
