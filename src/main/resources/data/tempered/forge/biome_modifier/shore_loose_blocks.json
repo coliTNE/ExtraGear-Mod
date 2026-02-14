@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tempered:is_river_shore",
+  "features": [
+    "tempered:pebble_shore",
+    "tempered:branch_shore"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -4,8 +4,10 @@ import com.jtine.tempered.registry.ModEntities;
 import com.jtine.tempered.registry.ModItems;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -42,6 +44,13 @@ public class PebbleProjectile extends ThrowableItemProjectile {
     protected void onHit(HitResult result) {
         super.onHit(result);
         if (!this.level().isClientSide()) {
+            if (result.getType() == HitResult.Type.BLOCK) {
+                ItemEntity drop = new ItemEntity(this.level(),
+                        this.getX(), this.getY(), this.getZ(),
+                        new ItemStack(ModItems.PEBBLE.get()));
+                drop.setPickUpDelay(10);
+                this.level().addFreshEntity(drop);
+            }
             this.discard();
         }
     }
