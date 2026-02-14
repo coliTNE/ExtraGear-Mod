@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "biome_type=0": [
+      { "model": "tempered:block/pebble_block_light" },
+      { "model": "tempered:block/pebble_block_light", "y": 90 },
+      { "model": "tempered:block/pebble_block_light", "y": 180 },
+      { "model": "tempered:block/pebble_block_light", "y": 270 }
+    ],
+    "biome_type=1": [
+      { "model": "tempered:block/pebble_block_medium" },
+      { "model": "tempered:block/pebble_block_medium", "y": 90 },
+      { "model": "tempered:block/pebble_block_medium", "y": 180 },
+      { "model": "tempered:block/pebble_block_medium", "y": 270 }
+    ],
+    "biome_type=2": [
+      { "model": "tempered:block/pebble_block_dark" },
+      { "model": "tempered:block/pebble_block_dark", "y": 90 },
+      { "model": "tempered:block/pebble_block_dark", "y": 180 },
+      { "model": "tempered:block/pebble_block_dark", "y": 270 }
+    ]
+  }
+}

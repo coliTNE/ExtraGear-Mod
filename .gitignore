@@ -32,5 +32,8 @@ Thumbs.db
 # Reference/working files
 reference-textures/
 
+# Compiled tool classes
+tools/*.class
+
 # Claude Code
 .claude/

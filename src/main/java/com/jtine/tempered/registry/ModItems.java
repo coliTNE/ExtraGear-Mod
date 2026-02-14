@@ -20,8 +20,8 @@ public class ModItems {
     public static final RegistryObject<Item> BRANCH =
             ITEMS.register("branch", () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> LOOSE_STONE =
-            ITEMS.register("loose_stone", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PEBBLE =
+            ITEMS.register("pebble", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> PLANT_FIBER =
             ITEMS.register("plant_fiber", () -> new Item(new Item.Properties()));
