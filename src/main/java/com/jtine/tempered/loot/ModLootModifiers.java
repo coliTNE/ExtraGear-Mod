@@ -17,6 +17,10 @@ public class ModLootModifiers {
             LOOT_MODIFIER_SERIALIZERS.register("require_axe_for_logs",
                     RequireAxeForLogDropsModifier.CODEC);
 
+    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> REPLACE_STICK_WITH_BRANCH =
+            LOOT_MODIFIER_SERIALIZERS.register("replace_stick_with_branch",
+                    ReplaceStickWithBranchModifier.CODEC);
+
     public static void register(IEventBus eventBus) {
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
