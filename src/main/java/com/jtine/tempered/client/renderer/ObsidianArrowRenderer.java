@@ -1,4 +1,4 @@
-package com.jtine.tempered.client;
+package com.jtine.tempered.client.renderer;
 
 import com.jtine.tempered.Tempered;
 import com.jtine.tempered.entity.ObsidianArrow;

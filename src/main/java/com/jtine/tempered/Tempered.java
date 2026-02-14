@@ -1,5 +1,8 @@
 package com.jtine.tempered;
 
+import com.jtine.tempered.registry.ModCreativeTabs;
+import com.jtine.tempered.registry.ModEntities;
+import com.jtine.tempered.registry.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;

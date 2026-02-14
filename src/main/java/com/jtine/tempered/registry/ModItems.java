@@ -1,5 +1,6 @@
-package com.jtine.tempered;
+package com.jtine.tempered.registry;
 
+import com.jtine.tempered.Tempered;
 import com.jtine.tempered.item.ObsidianArrowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;

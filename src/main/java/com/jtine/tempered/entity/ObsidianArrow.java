@@ -1,7 +1,7 @@
 package com.jtine.tempered.entity;
 
-import com.jtine.tempered.ModEntities;
-import com.jtine.tempered.ModItems;
+import com.jtine.tempered.registry.ModEntities;
+import com.jtine.tempered.registry.ModItems;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;

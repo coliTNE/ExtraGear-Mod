@@ -1,5 +1,6 @@
-package com.jtine.tempered;
+package com.jtine.tempered.registry;
 
+import com.jtine.tempered.Tempered;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

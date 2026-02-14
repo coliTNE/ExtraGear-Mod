@@ -1,5 +1,6 @@
-package com.jtine.tempered;
+package com.jtine.tempered.registry;
 
+import com.jtine.tempered.Tempered;
 import com.jtine.tempered.entity.ObsidianArrow;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
