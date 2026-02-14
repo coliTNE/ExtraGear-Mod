@@ -28,3 +28,9 @@ forge*changelog.txt
 # OS files
 Thumbs.db
 .DS_Store
+
+# Reference/working files
+reference-textures/
+
+# Claude Code
+.claude/
