@@ -1,0 +1,16 @@
+{
+  "type": "tempered:primitive_crafting",
+  "pattern": [
+    "BL",
+    "BL",
+    "BB"
+  ],
+  "key": {
+    "B": { "item": "tempered:branch" },
+    "L": { "item": "tempered:log_chunk" }
+  },
+  "result": {
+    "item": "minecraft:campfire",
+    "count": 1
+  }
+}

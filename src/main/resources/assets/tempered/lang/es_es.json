@@ -9,6 +9,7 @@
   "block.tempered.pebble_block": "Piedrita",
   "block.tempered.branch_block": "Rama",
   "item.tempered.log_chunk": "Trozo de Tronco",
+  "item.tempered.strange_branch": "Rama Extraña",
   "block.tempered.primitive_crafting_table": "Mesa de Crafteo Primitiva",
   "container.tempered.primitive_crafting": "Crafteo Primitivo",
   "itemGroup.tempered": "Tempered"
