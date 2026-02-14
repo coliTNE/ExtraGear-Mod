@@ -1,6 +1,7 @@
 package com.jtine.tempered;
 
 import com.jtine.tempered.loot.ModLootModifiers;
+import com.jtine.tempered.registry.ModBlocks;
 import com.jtine.tempered.registry.ModCreativeTabs;
 import com.jtine.tempered.registry.ModEntities;
 import com.jtine.tempered.registry.ModItems;
@@ -21,6 +22,7 @@ public class Tempered {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         ModLootModifiers.register(modEventBus);

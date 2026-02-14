@@ -22,8 +22,10 @@ public class ModCreativeTabs {
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.OBSIDIAN_ARROW.get());
                         output.accept(ModItems.BRANCH.get());
-                        output.accept(ModItems.LOOSE_STONE.get());
+                        output.accept(ModItems.PEBBLE.get());
                         output.accept(ModItems.PLANT_FIBER.get());
+                        output.accept(ModBlocks.PEBBLE_ITEM.get());
+                        output.accept(ModBlocks.BRANCH_ITEM.get());
                     })
                     .build());
 

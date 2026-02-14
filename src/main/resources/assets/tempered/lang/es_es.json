@@ -1,7 +1,9 @@
 {
   "item.tempered.obsidian_arrow": "Flecha de Obsidiana",
   "item.tempered.branch": "Rama",
-  "item.tempered.loose_stone": "Piedra Suelta",
+  "item.tempered.pebble": "Piedrita",
   "item.tempered.plant_fiber": "Fibra Vegetal",
+  "block.tempered.pebble_block": "Piedrita",
+  "block.tempered.branch_block": "Rama",
   "itemGroup.tempered": "Tempered"
 }

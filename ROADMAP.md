@@ -32,9 +32,13 @@ arboles a punos para obtener madera.
 
 ### 1.1 - Modificar comportamiento vanilla
 - [ ] La mano desnuda NO rompe bloques de madera (o los rompe muy lento sin drop util)
-- [ ] Romper hojas/pasto con la mano da items primitivos (ramas, fibras)
-- [ ] Piedras sueltas aparecen en el suelo (item en el mundo o drop de grava/tierra)
+- [x] Romper hojas/pasto con la mano da items primitivos (ramas, fibras)
+- [x] Piedras sueltas y ramas aparecen en el suelo (generacion en superficie por bioma)
 - [ ] Definir que bloques SI se pueden romper a mano y cuales no
+
+> **TODO:** Ajustar densidad de generacion de piedritas y ramas por bioma.
+> Actualmente la generacion es excesiva. Revisar placed features (tries, rarity_filter)
+> y agregar mas reglas de placement (ej: no generar sobre arena, nieve, etc.)
 
 ### 1.2 - Items y herramientas primitivas
 - [ ] Item: Rama (drop de hojas)
