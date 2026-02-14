@@ -8,5 +8,8 @@
   "item.tempered.primitive_sling": "Primitive Sling",
   "block.tempered.pebble_block": "Pebble",
   "block.tempered.branch_block": "Branch",
+  "item.tempered.log_chunk": "Log Chunk",
+  "block.tempered.primitive_crafting_table": "Primitive Crafting Table",
+  "container.tempered.primitive_crafting": "Primitive Crafting",
   "itemGroup.tempered": "Tempered"
 }

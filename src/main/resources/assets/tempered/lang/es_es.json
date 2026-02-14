@@ -8,5 +8,8 @@
   "item.tempered.primitive_sling": "Honda Primitiva",
   "block.tempered.pebble_block": "Piedrita",
   "block.tempered.branch_block": "Rama",
+  "item.tempered.log_chunk": "Trozo de Tronco",
+  "block.tempered.primitive_crafting_table": "Mesa de Crafteo Primitiva",
+  "container.tempered.primitive_crafting": "Crafteo Primitivo",
   "itemGroup.tempered": "Tempered"
 }

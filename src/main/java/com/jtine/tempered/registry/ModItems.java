@@ -29,6 +29,9 @@ public class ModItems {
     public static final RegistryObject<Item> PLANT_FIBER =
             ITEMS.register("plant_fiber", () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> LOG_CHUNK =
+            ITEMS.register("log_chunk", () -> new Item(new Item.Properties()));
+
     // Primitive tools (Fase 1)
     public static final RegistryObject<Item> PRIMITIVE_KNIFE =
             ITEMS.register("primitive_knife", () -> new PrimitiveKnifeItem(new Item.Properties()));

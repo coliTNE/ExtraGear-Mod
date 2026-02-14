@@ -27,6 +27,8 @@ public class ModCreativeTabs {
                         output.accept(ModItems.PRIMITIVE_KNIFE.get());
                         output.accept(ModItems.PRIMITIVE_AXE.get());
                         output.accept(ModItems.PRIMITIVE_SLING.get());
+                        output.accept(ModItems.LOG_CHUNK.get());
+                        output.accept(ModBlocks.PRIMITIVE_CRAFTING_TABLE_ITEM.get());
                     })
                     .build());
 

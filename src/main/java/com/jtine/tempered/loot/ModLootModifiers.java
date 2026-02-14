@@ -25,6 +25,10 @@ public class ModLootModifiers {
             LOOT_MODIFIER_SERIALIZERS.register("grass_drops_fiber",
                     GrassDropsFiberModifier.CODEC);
 
+    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> LEAF_DROPS_FIBER =
+            LOOT_MODIFIER_SERIALIZERS.register("leaf_drops_fiber",
+                    LeafDropsFiberModifier.CODEC);
+
     public static void register(IEventBus eventBus) {
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
