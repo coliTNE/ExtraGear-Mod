@@ -1,0 +1,17 @@
+{
+  "type": "tempered:primitive_crafting",
+  "pattern": [
+    "S",
+    "F",
+    "B"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "F": { "item": "tempered:plant_fiber" },
+    "B": { "item": "tempered:strange_branch" }
+  },
+  "result": {
+    "item": "tempered:primitive_sling",
+    "count": 1
+  }
+}

@@ -38,11 +38,15 @@ public class ReplaceStickWithBranchModifier extends LootModifier {
             return generatedLoot;
         }
 
-        // Replace sticks with branches, keep everything else (saplings, apples)
+        // Replace sticks with branches (75%) or strange branches (25%)
         for (int i = 0; i < generatedLoot.size(); i++) {
             if (generatedLoot.get(i).is(Items.STICK)) {
-                generatedLoot.set(i, new ItemStack(ModItems.BRANCH.get(),
-                        generatedLoot.get(i).getCount()));
+                int count = generatedLoot.get(i).getCount();
+                if (context.getRandom().nextFloat() < 0.25f) {
+                    generatedLoot.set(i, new ItemStack(ModItems.STRANGE_BRANCH.get(), count));
+                } else {
+                    generatedLoot.set(i, new ItemStack(ModItems.BRANCH.get(), count));
+                }
             }
         }
 
