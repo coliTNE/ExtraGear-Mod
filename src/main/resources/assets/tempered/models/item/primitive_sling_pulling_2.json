@@ -1,0 +1,6 @@
+{
+  "parent": "tempered:item/primitive_sling",
+  "textures": {
+    "layer0": "tempered:item/primitive_sling_pulling_2"
+  }
+}

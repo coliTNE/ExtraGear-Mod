@@ -30,7 +30,7 @@ Thumbs.db
 .DS_Store
 
 # Reference/working files
-reference-textures/
+reference/
 
 # Compiled tool classes
 tools/*.class

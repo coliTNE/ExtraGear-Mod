@@ -2,6 +2,7 @@ package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
 import com.jtine.tempered.entity.ObsidianArrow;
+import com.jtine.tempered.entity.PebbleProjectile;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +22,14 @@ public class ModEntities {
                             .clientTrackingRange(4)
                             .updateInterval(20)
                             .build("obsidian_arrow"));
+
+    public static final RegistryObject<EntityType<PebbleProjectile>> PEBBLE_PROJECTILE =
+            ENTITIES.register("pebble_projectile",
+                    () -> EntityType.Builder.<PebbleProjectile>of(PebbleProjectile::new, MobCategory.MISC)
+                            .sized(0.25f, 0.25f)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build("pebble_projectile"));
 
     public static void register(IEventBus eventBus) {
         ENTITIES.register(eventBus);
