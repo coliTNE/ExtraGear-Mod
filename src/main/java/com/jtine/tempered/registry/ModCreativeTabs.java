@@ -21,6 +21,9 @@ public class ModCreativeTabs {
                     .icon(() -> ModItems.OBSIDIAN_ARROW.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(ModItems.OBSIDIAN_ARROW.get());
+                        output.accept(ModItems.BRANCH.get());
+                        output.accept(ModItems.LOOSE_STONE.get());
+                        output.accept(ModItems.PLANT_FIBER.get());
                     })
                     .build());
 
