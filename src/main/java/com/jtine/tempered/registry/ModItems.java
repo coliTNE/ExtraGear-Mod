@@ -2,6 +2,9 @@ package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
 import com.jtine.tempered.item.ObsidianArrowItem;
+import com.jtine.tempered.item.PrimitiveAxeItem;
+import com.jtine.tempered.item.PrimitiveKnifeItem;
+import com.jtine.tempered.item.PrimitiveSlingItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,6 +28,17 @@ public class ModItems {
 
     public static final RegistryObject<Item> PLANT_FIBER =
             ITEMS.register("plant_fiber", () -> new Item(new Item.Properties()));
+
+    // Primitive tools (Fase 1)
+    public static final RegistryObject<Item> PRIMITIVE_KNIFE =
+            ITEMS.register("primitive_knife", () -> new PrimitiveKnifeItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PRIMITIVE_AXE =
+            ITEMS.register("primitive_axe", () -> new PrimitiveAxeItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> PRIMITIVE_SLING =
+            ITEMS.register("primitive_sling", () -> new PrimitiveSlingItem(
+                    new Item.Properties().durability(64)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

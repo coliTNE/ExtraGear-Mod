@@ -3,6 +3,9 @@
   "item.tempered.branch": "Rama",
   "item.tempered.pebble": "Piedrita",
   "item.tempered.plant_fiber": "Fibra Vegetal",
+  "item.tempered.primitive_knife": "Cuchillo Primitivo",
+  "item.tempered.primitive_axe": "Hacha Primitiva",
+  "item.tempered.primitive_sling": "Honda Primitiva",
   "block.tempered.pebble_block": "Piedrita",
   "block.tempered.branch_block": "Rama",
   "itemGroup.tempered": "Tempered"

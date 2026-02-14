@@ -3,6 +3,9 @@
   "item.tempered.branch": "Branch",
   "item.tempered.pebble": "Pebble",
   "item.tempered.plant_fiber": "Plant Fiber",
+  "item.tempered.primitive_knife": "Primitive Knife",
+  "item.tempered.primitive_axe": "Primitive Axe",
+  "item.tempered.primitive_sling": "Primitive Sling",
   "block.tempered.pebble_block": "Pebble",
   "block.tempered.branch_block": "Branch",
   "itemGroup.tempered": "Tempered"

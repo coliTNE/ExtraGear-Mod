@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tempered:item/primitive_sling"
+  },
+  "overrides": [
+    {"predicate": {"pulling": 1}, "model": "tempered:item/primitive_sling_pulling_0"},
+    {"predicate": {"pulling": 1, "pull": 0.65}, "model": "tempered:item/primitive_sling_pulling_1"},
+    {"predicate": {"pulling": 1, "pull": 0.9}, "model": "tempered:item/primitive_sling_pulling_2"}
+  ]
+}
