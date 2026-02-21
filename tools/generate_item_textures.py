@@ -257,11 +257,13 @@ def generate_strange_branch(out_dir):
 # -- placeholder: generate_primitive_axe will be added later --
 
 
+# primitive_axe: will be hand-edited in LibreSprite (not generated here)
+
+
 GENERATORS = {
     'pebble': generate_pebble,
     'plant_fiber': generate_plant_fiber,
     'strange_branch': generate_strange_branch,
-    # 'primitive_axe': generate_primitive_axe,
 }
 
 
