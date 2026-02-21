@@ -1,76 +1,50 @@
-# Tempered - Claude Code Instructions
+# Tempered - Minecraft Forge 1.20.1 Mod
 
-## Project Overview
-Tempered is a Minecraft Forge 1.20.1 progression overhaul mod. It replaces vanilla
-progression with a realistic, gradual system based on custom workstations and forging.
-
-- **Mod ID**: tempered
-- **Package**: com.jtine.tempered
-- **Forge**: 1.20.1 (47.3.0)
-- **JDK**: Eclipse Temurin 17
+See [SPEC.md](SPEC.md) for project context, stack, and architecture.
 
 ## Build & Run
 
-Build:
 ```bash
 export PATH="/c/Program Files/Eclipse Adoptium/jdk-17.0.18.8-hotspot/bin:$PATH"
 export JAVA_HOME="/c/Program Files/Eclipse Adoptium/jdk-17.0.18.8-hotspot"
-./gradlew build
+./gradlew build      # compile + verify
+./gradlew runClient  # launch Minecraft with mod
 ```
 
-Run Minecraft client with mod:
-```bash
-export PATH="/c/Program Files/Eclipse Adoptium/jdk-17.0.18.8-hotspot/bin:$PATH"
-export JAVA_HOME="/c/Program Files/Eclipse Adoptium/jdk-17.0.18.8-hotspot"
-./gradlew runClient
-```
+## Rules
 
-## Package Structure
+- Communicate in Spanish. Explain Java concepts via JS/Python comparisons.
+- ALWAYS update both `lang/en_us.json` AND `lang/es_es.json` together.
+- NO recipes unless explicitly requested.
+- NO push without user confirmation.
+- Verify build (`./gradlew build`) after structural changes.
+- Use AskUserQuestion when in doubt. Don't rush.
 
-```
-com.jtine.tempered/
-  Tempered.java           @Mod entry point
-  registry/               DeferredRegister classes (ModItems, ModBlocks, etc.)
-  item/                   Item classes
-  entity/                 Entity classes
-  block/                  Block classes
-  client/                 Client-only code (renderers, screens)
-    renderer/             Entity/block renderers
-    screen/               GUI screens
-  event/                  Forge event handlers
-  recipe/                 Custom recipe types
-```
+## Forge 1.20.1 Gotchas
 
-Create new packages only when adding their first class. No empty packages.
+- `IForgeMenuType.create()` NOT `.regular()` for menu registration.
+- `MenuScreens.register()` inside `FMLClientSetupEvent.enqueueWork()` NOT `RegisterMenuScreensEvent`.
+- `noOcclusion()` on block properties for non-full-cube blocks (prevents face culling).
+- Biome modifiers path: `data/<modid>/forge/biome_modifier/` NOT `data/forge/`.
+- RecipeType registration needs double cast: `(RecipeType<T>)(RecipeType<?>)` with `@SuppressWarnings`.
+- Client-only code MUST be in `client/` with `Dist.CLIENT` — crashes dedicated servers otherwise.
+- NEVER call `config.get()` during registration (DeferredRegister lambdas). Use `SPEC.isLoaded()` guard or hardcoded defaults.
 
-## Conventions
+## GeckoLib 4.8.2 Patterns
 
-### Git
-- Branch from `main`: `feature/`, `fix/`, `infra/`, `refactor/`, `docs/`
-- Commit messages: imperative mood, capitalize, no period
-- Version in `gradle.properties` (SemVer)
+- Items: implement `GeoItem`, use `initializeClient()` with `IClientItemExtensions`.
+- Model JSON: `"parent": "builtin/entity"` in `models/item/`.
+- Files: `geo/` for geometry, `animations/` for animations, `textures/` for textures.
+- Register animated singletons: `SingletonGeoAnimatable.registerSyncedAnimatable()`.
 
-### Code
-- Use Forge's DeferredRegister pattern for all registries
-- Registry classes go in `registry/` package
-- Client-only code must be in `client/` package with proper `Dist.CLIENT` annotations
-- Separate client and server logic (Forge requirement for dedicated servers)
+## Specialized Agents
 
-### Resources
-- Assets: `src/main/resources/assets/tempered/`
-- Data: `src/main/resources/data/`
-- Language files: `lang/en_us.json` and `lang/es_es.json` (always keep both updated)
-
-## User Preferences
-- Communicate in Spanish
-- Explain Java concepts by comparing to JavaScript/Python equivalents
-- Don't rush - explain what we're doing and why
-- Use AskUserQuestion when in doubt
-- Commit frequently with meaningful messages
-
-## Do NOT
-- Create empty Java packages
-- Skip the build verification after structural changes
-- Add features beyond what was requested
-- Forget to update both language files (en_us.json and es_es.json)
-- Push to origin without user confirmation
+Use `/verify`, `/lang-check`, `/review` commands for quick validations.
+For complex tasks, Claude has specialized agents in `.claude/agents/`:
+- **weapon-modeler** — Design weapons/tools with correct display transforms
+- **geckolib-item-creator** — Create animated GeckoLib items end-to-end
+- **geckolib-entity-creator** — Create animated GeckoLib entities
+- **geckolib-block-creator** — Create animated GeckoLib blocks
+- **resource-validator** — Audit all mod resources for missing files
+- **forge-reviewer** — Code review for Forge 1.20.1 patterns
+- **build-debugger** — Diagnose compilation and runtime errors

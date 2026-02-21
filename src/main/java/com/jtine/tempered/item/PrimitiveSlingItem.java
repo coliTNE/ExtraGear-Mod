@@ -1,5 +1,6 @@
 package com.jtine.tempered.item;
 
+import com.jtine.tempered.config.TemperedConfig;
 import com.jtine.tempered.entity.PebbleProjectile;
 import com.jtine.tempered.registry.ModItems;
 import net.minecraft.sounds.SoundEvents;
@@ -27,6 +28,11 @@ public class PrimitiveSlingItem extends Item {
 
     public PrimitiveSlingItem(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public int getMaxDamage(ItemStack stack) {
+        return TemperedConfig.SPEC.isLoaded() ? TemperedConfig.SLING_DURABILITY.get() : super.getMaxDamage(stack);
     }
 
     @Override

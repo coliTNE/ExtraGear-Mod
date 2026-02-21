@@ -1,6 +1,7 @@
 package com.jtine.tempered.loot;
 
 import com.google.common.base.Suppliers;
+import com.jtine.tempered.config.TemperedConfig;
 import com.jtine.tempered.registry.ModItems;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -42,7 +43,7 @@ public class ReplaceStickWithBranchModifier extends LootModifier {
         for (int i = 0; i < generatedLoot.size(); i++) {
             if (generatedLoot.get(i).is(Items.STICK)) {
                 int count = generatedLoot.get(i).getCount();
-                if (context.getRandom().nextFloat() < 0.25f) {
+                if (context.getRandom().nextFloat() < TemperedConfig.STRANGE_BRANCH_CHANCE.get().floatValue()) {
                     generatedLoot.set(i, new ItemStack(ModItems.STRANGE_BRANCH.get(), count));
                 } else {
                     generatedLoot.set(i, new ItemStack(ModItems.BRANCH.get(), count));

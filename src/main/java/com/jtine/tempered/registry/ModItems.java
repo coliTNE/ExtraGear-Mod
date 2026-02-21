@@ -1,7 +1,6 @@
 package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
-import com.jtine.tempered.item.ObsidianArrowItem;
 import com.jtine.tempered.item.PrimitiveAxeItem;
 import com.jtine.tempered.item.PrimitiveKnifeItem;
 import com.jtine.tempered.item.PrimitiveSlingItem;
@@ -15,9 +14,6 @@ public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Tempered.MODID);
-
-    public static final RegistryObject<Item> OBSIDIAN_ARROW =
-            ITEMS.register("obsidian_arrow", () -> new ObsidianArrowItem(new Item.Properties()));
 
     // Primitive materials (Fase 1)
     public static final RegistryObject<Item> BRANCH =

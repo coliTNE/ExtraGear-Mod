@@ -1,7 +1,6 @@
 package com.jtine.tempered.client;
 
 import com.jtine.tempered.Tempered;
-import com.jtine.tempered.client.renderer.ObsidianArrowRenderer;
 import com.jtine.tempered.client.screen.PrimitiveCraftingScreen;
 import com.jtine.tempered.registry.ModEntities;
 import com.jtine.tempered.registry.ModItems;
@@ -21,7 +20,6 @@ public class ClientSetup {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.OBSIDIAN_ARROW.get(), ObsidianArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.PEBBLE_PROJECTILE.get(), ThrownItemRenderer::new);
     }
 
