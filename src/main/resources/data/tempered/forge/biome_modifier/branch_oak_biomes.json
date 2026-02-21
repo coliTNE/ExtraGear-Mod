@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tempered:has_oak_branches",
+  "features": ["tempered:branch_oak"],
+  "step": "vegetal_decoration"
+}

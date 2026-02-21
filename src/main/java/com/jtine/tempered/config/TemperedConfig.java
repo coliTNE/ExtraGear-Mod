@@ -18,6 +18,11 @@ public class TemperedConfig {
     // Damage
     public static final ForgeConfigSpec.DoubleValue PEBBLE_PROJECTILE_DAMAGE;
 
+    // World Generation
+    public static final ForgeConfigSpec.BooleanValue ENABLE_PEBBLE_GENERATION;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_BRANCH_GENERATION;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_UNDERGROUND_PEBBLES;
+
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
 
@@ -50,6 +55,20 @@ public class TemperedConfig {
         PEBBLE_PROJECTILE_DAMAGE = builder
                 .comment("Damage dealt by pebble projectiles (in half-hearts)")
                 .defineInRange("pebbleProjectileDamage", 4.0, 0.0, 100.0);
+
+        builder.pop().push("worldgen");
+
+        ENABLE_PEBBLE_GENERATION = builder
+                .comment("Enable surface pebble generation")
+                .define("enablePebbles", true);
+
+        ENABLE_BRANCH_GENERATION = builder
+                .comment("Enable surface branch generation")
+                .define("enableBranches", true);
+
+        ENABLE_UNDERGROUND_PEBBLES = builder
+                .comment("Enable underground pebble generation")
+                .define("enableUndergroundPebbles", true);
 
         builder.pop();
 
