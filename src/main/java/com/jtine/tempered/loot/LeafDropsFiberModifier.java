@@ -1,6 +1,7 @@
 package com.jtine.tempered.loot;
 
 import com.google.common.base.Suppliers;
+import com.jtine.tempered.config.TemperedConfig;
 import com.jtine.tempered.registry.ModItems;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -23,8 +24,6 @@ public class LeafDropsFiberModifier extends LootModifier {
             Suppliers.memoize(() -> RecordCodecBuilder.create(inst ->
                     codecStart(inst).apply(inst, LeafDropsFiberModifier::new)));
 
-    private static final float DROP_CHANCE = 0.15f;
-
     public LeafDropsFiberModifier(LootItemCondition[] conditionsIn) {
         super(conditionsIn);
     }
@@ -37,7 +36,7 @@ public class LeafDropsFiberModifier extends LootModifier {
             return generatedLoot;
         }
 
-        if (blockState.is(BlockTags.LEAVES) && context.getRandom().nextFloat() < DROP_CHANCE) {
+        if (blockState.is(BlockTags.LEAVES) && context.getRandom().nextFloat() < TemperedConfig.LEAF_FIBER_DROP_CHANCE.get().floatValue()) {
             generatedLoot.add(new ItemStack(ModItems.PLANT_FIBER.get()));
         }
 

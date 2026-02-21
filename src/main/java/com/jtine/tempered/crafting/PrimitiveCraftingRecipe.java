@@ -1,6 +1,7 @@
 package com.jtine.tempered.crafting;
 
 import com.jtine.tempered.registry.ModBlocks;
+import com.jtine.tempered.registry.ModRecipeTypes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;

@@ -1,5 +1,6 @@
 package com.jtine.tempered.entity;
 
+import com.jtine.tempered.config.TemperedConfig;
 import com.jtine.tempered.registry.ModEntities;
 import com.jtine.tempered.registry.ModItems;
 import net.minecraft.world.entity.EntityType;
@@ -19,8 +20,6 @@ import net.minecraft.world.phys.HitResult;
  */
 public class PebbleProjectile extends ThrowableItemProjectile {
 
-    private static final float DAMAGE = 4.0f;
-
     public PebbleProjectile(EntityType<? extends ThrowableItemProjectile> type, Level level) {
         super(type, level);
     }
@@ -37,7 +36,8 @@ public class PebbleProjectile extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
-        result.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()), DAMAGE);
+        result.getEntity().hurt(this.damageSources().thrown(this, this.getOwner()),
+                TemperedConfig.PEBBLE_PROJECTILE_DAMAGE.get().floatValue());
     }
 
     @Override

@@ -7,25 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- GeckoLib 4.7.3 integration for animated models
+- ForgeConfigSpec for configurable drop rates, durability, and damage values
+
 ### Changed
-- Reorganized Java packages: registry classes to `registry/`, renderers to `client/renderer/`
+- Reorganized registry classes (ModRecipeTypes, ModLootModifiers) into `registry/` package
+- Extracted magic numbers in PrimitiveCraftingMenu to named constants
+- Updated git flow: develop-based branching (features → develop → main)
+
+### Removed
+- Obsidian Arrow (item, entity, renderer, textures) — was a learning exercise
+- Forge MDK template files (README.txt, CREDITS.txt, LICENSE.txt)
+
+## [0.1.1] - 2025-02-21
 
 ### Added
-- GitHub Actions CI workflow (build on push to main and PRs)
-- CHANGELOG.md
-- CONTRIBUTING.md
-- ROADMAP.md with 5-phase development plan
+- Primitive items: Branch, Pebble, Plant Fiber, Log Chunk, Strange Branch
+- Primitive tools: Knife, Axe, Sling (with pull animation)
+- Primitive Crafting Table block with custom 2x3 recipe grid
+- Custom recipe type `tempered:primitive_crafting` with shaped pattern matching
+- First recipes: Campfire, Primitive Sling (via primitive crafting table)
+- Crafting table recipe: 4 Log Chunks in vanilla 2x2 grid
+- Pebble and Branch world generation across biome categories (dark/medium/light/shore)
+- Biome tags for generation: is_dark_wood, is_light_wood, is_medium_wood, is_river_shore
+- Loot modifiers: grass drops fiber (40%), leaves drop fiber (15%), leaves drop branches
+- Strange Branch: 25% chance drop from leaves (replaces vanilla sticks)
+- Require Primitive Axe to get log drops
+- Vanilla wooden/stone tool recipes disabled (forge:false condition)
+- Vanilla wooden/stone tools removed from creative tabs
+- GitHub Actions CI workflow
+
+### Changed
+- Reorganized Java packages: registry/, item/, block/, entity/, crafting/, loot/, client/
 
 ## [0.1.0] - 2025-02-13
 
 ### Added
 - Initial Forge 1.20.1 mod setup
-- Obsidian Arrow item with custom entity and renderer
-- Obsidian Arrow deals 3.0 base damage (50% more than vanilla)
-- Obsidian Arrow works as ammo in survival mode (bows and crossbows)
 - Custom creative tab "Tempered"
 - Spanish and English language files
-- Custom textures with obsidian purple color palette
+- CHANGELOG.md, CONTRIBUTING.md, ROADMAP.md
 
-[Unreleased]: https://github.com/coliTNE/ExtraGear-Mod/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/coliTNE/ExtraGear-Mod/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/coliTNE/ExtraGear-Mod/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/coliTNE/ExtraGear-Mod/releases/tag/v0.1.0

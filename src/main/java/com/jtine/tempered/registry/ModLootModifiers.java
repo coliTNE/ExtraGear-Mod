@@ -1,7 +1,11 @@
-package com.jtine.tempered.loot;
+package com.jtine.tempered.registry;
 
 import com.mojang.serialization.Codec;
 import com.jtine.tempered.Tempered;
+import com.jtine.tempered.loot.GrassDropsFiberModifier;
+import com.jtine.tempered.loot.LeafDropsFiberModifier;
+import com.jtine.tempered.loot.ReplaceStickWithBranchModifier;
+import com.jtine.tempered.loot.RequireAxeForLogDropsModifier;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

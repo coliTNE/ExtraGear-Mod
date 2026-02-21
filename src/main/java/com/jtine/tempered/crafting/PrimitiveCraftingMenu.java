@@ -2,6 +2,7 @@ package com.jtine.tempered.crafting;
 
 import com.jtine.tempered.registry.ModBlocks;
 import com.jtine.tempered.registry.ModMenuTypes;
+import com.jtine.tempered.registry.ModRecipeTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -19,6 +20,15 @@ import net.minecraft.world.level.Level;
  * - removed() is the cleanup/unmount (drops items when closed)
  */
 public class PrimitiveCraftingMenu extends AbstractContainerMenu {
+
+    // Slot layout constants
+    private static final int RESULT_SLOT = 0;
+    private static final int CRAFT_START = 1;
+    private static final int CRAFT_END = 7;      // exclusive (6 crafting slots: 2x3)
+    private static final int INV_START = 7;       // player inventory (27 slots)
+    private static final int INV_END = 34;        // exclusive
+    private static final int HOTBAR_START = 34;
+    private static final int HOTBAR_END = 43;     // exclusive (9 hotbar slots)
 
     private final CraftingContainer craftSlots;
     private final ResultContainer resultSlots;
@@ -109,28 +119,28 @@ public class PrimitiveCraftingMenu extends AbstractContainerMenu {
             ItemStack rawStack = slot.getItem();
             quickMoved = rawStack.copy();
 
-            if (index == 0) {
+            if (index == RESULT_SLOT) {
                 // Result slot -> player inventory
-                if (!this.moveItemStackTo(rawStack, 7, 43, true)) {
+                if (!this.moveItemStackTo(rawStack, INV_START, HOTBAR_END, true)) {
                     return ItemStack.EMPTY;
                 }
                 slot.onQuickCraft(rawStack, quickMoved);
-            } else if (index >= 1 && index < 7) {
+            } else if (index >= CRAFT_START && index < CRAFT_END) {
                 // Crafting grid -> player inventory
-                if (!this.moveItemStackTo(rawStack, 7, 43, false)) {
+                if (!this.moveItemStackTo(rawStack, INV_START, HOTBAR_END, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index < 34) {
+            } else if (index < INV_END) {
                 // Player inventory -> crafting grid, then hotbar
-                if (!this.moveItemStackTo(rawStack, 1, 7, false)) {
-                    if (!this.moveItemStackTo(rawStack, 34, 43, false)) {
+                if (!this.moveItemStackTo(rawStack, CRAFT_START, CRAFT_END, false)) {
+                    if (!this.moveItemStackTo(rawStack, HOTBAR_START, HOTBAR_END, false)) {
                         return ItemStack.EMPTY;
                     }
                 }
-            } else if (index < 43) {
+            } else if (index < HOTBAR_END) {
                 // Hotbar -> crafting grid, then inventory
-                if (!this.moveItemStackTo(rawStack, 1, 7, false)) {
-                    if (!this.moveItemStackTo(rawStack, 7, 34, false)) {
+                if (!this.moveItemStackTo(rawStack, CRAFT_START, CRAFT_END, false)) {
+                    if (!this.moveItemStackTo(rawStack, INV_START, INV_END, false)) {
                         return ItemStack.EMPTY;
                     }
                 }

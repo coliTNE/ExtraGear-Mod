@@ -1,6 +1,8 @@
-package com.jtine.tempered.crafting;
+package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
+import com.jtine.tempered.crafting.PrimitiveCraftingRecipe;
+import com.jtine.tempered.crafting.PrimitiveCraftingRecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;

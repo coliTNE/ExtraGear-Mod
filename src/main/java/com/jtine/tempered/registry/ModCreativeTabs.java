@@ -18,9 +18,8 @@ public class ModCreativeTabs {
             () -> CreativeModeTab.builder()
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .title(Component.translatable("itemGroup." + Tempered.MODID))
-                    .icon(() -> ModItems.OBSIDIAN_ARROW.get().getDefaultInstance())
+                    .icon(() -> ModItems.PRIMITIVE_AXE.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
-                        output.accept(ModItems.OBSIDIAN_ARROW.get());
                         output.accept(ModItems.BRANCH.get());
                         output.accept(ModItems.PEBBLE.get());
                         output.accept(ModItems.PLANT_FIBER.get());

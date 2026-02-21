@@ -1,5 +1,6 @@
 package com.jtine.tempered.item;
 
+import com.jtine.tempered.config.TemperedConfig;
 import com.jtine.tempered.registry.ModItems;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -32,7 +33,7 @@ public enum ModToolTiers implements Tier {
         this.repairIngredient = repairIngredient;
     }
 
-    @Override public int getUses() { return uses; }
+    @Override public int getUses() { return TemperedConfig.PRIMITIVE_TOOL_DURABILITY.get(); }
     @Override public float getSpeed() { return speed; }
     @Override public float getAttackDamageBonus() { return attackDamageBonus; }
     @Override public int getLevel() { return level; }

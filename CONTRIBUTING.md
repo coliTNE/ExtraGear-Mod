@@ -60,15 +60,25 @@ com.jtine.tempered/
     renderer/             Entity/block renderers
     screen/               GUI screens (created when needed)
   event/                  Event handlers (created when needed)
-  recipe/                 Custom recipe types (created when needed)
+  crafting/               Custom recipe types and menus
+  loot/                   Global loot modifiers
+  config/                 ForgeConfigSpec
 ```
 
 New packages are created only when their first class is added.
 
 ## Workflow
 
-1. Create branch from `main` with proper naming
+1. Create branch from `develop` with proper naming
 2. Make changes, commit frequently
-3. Open PR to `main`
+3. Open PR to `develop`
 4. CI must pass (GitHub Actions build)
 5. Merge and delete branch
+
+### Releases
+
+When `develop` is stable and ready for release:
+1. Open PR from `develop` to `main`
+2. Bump version in `gradle.properties`
+3. Update CHANGELOG.md (move Unreleased to new version)
+4. Merge to `main` and tag (e.g., `v0.2.0`)
