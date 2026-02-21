@@ -206,14 +206,61 @@ def generate_plant_fiber(out_dir):
     save_png(os.path.join(out_dir, 'plant_fiber.png'), c)
 
 
-# -- placeholder: generate_strange_branch will be added later --
+def generate_strange_branch(out_dir):
+    """Diagonal Y-shaped forked branch — slingshot handle, bottom-left to top-right."""
+    c = new_canvas()
+
+    # Palette: darker brown to match branch.png
+    H = rgb(170, 140, 90)    # highlight (upper edge)
+    B = rgb(125, 90, 50)     # base (body)
+    S = rgb(80, 55, 30)      # shadow (lower edge)
+    K = rgb(60, 40, 20)      # knot / dark accent at fork
+    T = rgb(150, 120, 75)    # mid-tone (grain detail)
+
+    # Trunk: diagonal from bottom-left to fork, shifted up for centering
+    trunk = [
+        (3, 13), (4, 12), (5, 11), (6, 10), (7, 9),
+    ]
+    for (x, y) in trunk:
+        px(c, x, y, B)
+        px(c, x, y - 1, H)
+        px(c, x + 1, y, S)
+
+    # Taper at base
+    px(c, 3, 12, TRANSPARENT)
+
+    # Fork junction at (8, 8) — knot
+    px(c, 7, 8, H)
+    px(c, 8, 8, K)
+    px(c, 9, 8, S)
+
+    # Right prong: continues diagonal up-right (longer)
+    prong_r = [(9, 7), (10, 6), (10, 5), (11, 4)]
+    for (x, y) in prong_r:
+        px(c, x, y, B)
+        px(c, x, y - 1, H)
+    px(c, 11, 3, T)  # tip
+
+    # Left prong: more vertical, shorter, closer to right
+    prong_l = [(7, 7), (7, 6), (6, 5)]
+    for (x, y) in prong_l:
+        px(c, x, y, B)
+        px(c, x - 1, y, H)
+    px(c, 6, 4, T)  # tip
+
+    # Wood grain on trunk
+    px(c, 5, 11, T)
+
+    save_png(os.path.join(out_dir, 'strange_branch.png'), c)
+
+
 # -- placeholder: generate_primitive_axe will be added later --
 
 
 GENERATORS = {
     'pebble': generate_pebble,
     'plant_fiber': generate_plant_fiber,
-    # 'strange_branch': generate_strange_branch,
+    'strange_branch': generate_strange_branch,
     # 'primitive_axe': generate_primitive_axe,
 }
 
