@@ -48,3 +48,4 @@ For complex tasks, Claude has specialized agents in `.claude/agents/`:
 - **resource-validator** — Audit all mod resources for missing files
 - **forge-reviewer** — Code review for Forge 1.20.1 patterns
 - **build-debugger** — Diagnose compilation and runtime errors
+- **texture-creator** — Create 16x16 pixel art item textures (struct+zlib PNG generation)
