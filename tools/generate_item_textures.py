@@ -139,14 +139,80 @@ def generate_pebble(out_dir):
     save_png(os.path.join(out_dir, 'pebble.png'), c)
 
 
-# -- placeholder: generate_plant_fiber will be added later --
+def generate_plant_fiber(out_dir):
+    """Three organic fiber strands with subtle curves and frayed ends."""
+    c = new_canvas()
+
+    # Palette: 3 green tones per strand + pale highlight
+    G1 = rgb(105, 155, 50)    # strand 1 — warm green
+    G2 = rgb(80, 135, 40)     # strand 2 — base green
+    G3 = rgb(120, 150, 45)    # strand 3 — yellow-green
+    GH = rgb(145, 185, 80)    # highlight (top tips)
+    GD = rgb(55, 95, 25)      # dark (shadow, frayed ends)
+
+    # Left strand (x~4-5, curves slightly right in middle)
+    strand_l = [
+        (4, 2, GH),  # tip highlight
+        (4, 3, G1), (5, 3, G1),
+        (5, 4, G1),
+        (5, 5, G1), (6, 5, GD),
+        (5, 6, G1),
+        (5, 7, G1),
+        (4, 8, G1),
+        (4, 9, G1), (5, 9, GD),
+        (4, 10, G1),
+        (3, 11, G1),
+        (3, 12, GD),  # frayed end left
+        (5, 12, GD),  # frayed end right
+    ]
+
+    # Center strand (x~7-8, mostly straight)
+    strand_c = [
+        (7, 1, GH),  # tip highlight
+        (7, 2, G2), (8, 2, G2),
+        (7, 3, G2),
+        (7, 4, G2), (8, 4, GD),
+        (8, 5, G2),
+        (8, 6, G2),
+        (7, 7, G2),
+        (7, 8, G2), (8, 8, GD),
+        (7, 9, G2),
+        (7, 10, G2),
+        (8, 11, G2),
+        (7, 12, GD),  # frayed
+        (9, 12, GD),  # frayed
+        (8, 13, GD),
+    ]
+
+    # Right strand (x~10-11, curves slightly left)
+    strand_r = [
+        (11, 3, GH),  # tip highlight
+        (11, 4, G3), (10, 4, G3),
+        (10, 5, G3),
+        (10, 6, G3), (11, 6, GD),
+        (10, 7, G3),
+        (11, 8, G3),
+        (11, 9, G3),
+        (11, 10, G3), (10, 10, GD),
+        (11, 11, G3),
+        (11, 12, GD),  # frayed
+        (12, 13, GD),  # frayed end
+    ]
+
+    for strand in (strand_l, strand_c, strand_r):
+        for (x, y, color) in strand:
+            px(c, x, y, color)
+
+    save_png(os.path.join(out_dir, 'plant_fiber.png'), c)
+
+
 # -- placeholder: generate_strange_branch will be added later --
 # -- placeholder: generate_primitive_axe will be added later --
 
 
 GENERATORS = {
     'pebble': generate_pebble,
-    # 'plant_fiber': generate_plant_fiber,
+    'plant_fiber': generate_plant_fiber,
     # 'strange_branch': generate_strange_branch,
     # 'primitive_axe': generate_primitive_axe,
 }
