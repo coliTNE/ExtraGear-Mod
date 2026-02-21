@@ -1,7 +1,8 @@
 package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
-import com.jtine.tempered.block.LooseItemBlock;
+import com.jtine.tempered.block.BranchBlock;
+import com.jtine.tempered.block.PebbleBlock;
 import com.jtine.tempered.block.PrimitiveCraftingTableBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -23,9 +24,9 @@ public class ModBlocks {
     public static final DeferredRegister<Item> BLOCK_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Tempered.MODID);
 
-    // Pebble: small flat stone on the ground (biome_type property for visual variants)
+    // Pebble: small flat stone on the ground (stone_type 0-2 for visual variants)
     public static final RegistryObject<Block> PEBBLE = BLOCKS.register("pebble_block",
-            () -> new LooseItemBlock(BlockBehaviour.Properties.of()
+            () -> new PebbleBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .instabreak()
                     .noCollission()
@@ -33,9 +34,9 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
                     .pushReaction(PushReaction.DESTROY)));
 
-    // Branch: flat branch on the ground (biome_type property for visual variants)
+    // Branch: flat branch on the ground (wood_type 0-5 for biome-specific variants)
     public static final RegistryObject<Block> BRANCH = BLOCKS.register("branch_block",
-            () -> new LooseItemBlock(BlockBehaviour.Properties.of()
+            () -> new BranchBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.WOOD)
                     .instabreak()
                     .noCollission()

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tempered:is_light_wood",
+  "features": ["tempered:pebble_light"],
+  "step": "vegetal_decoration"
+}

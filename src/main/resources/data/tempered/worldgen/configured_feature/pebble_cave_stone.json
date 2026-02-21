@@ -1,9 +1,9 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 6,
-    "xz_spread": 5,
-    "y_spread": 3,
+    "tries": 24,
+    "xz_spread": 7,
+    "y_spread": 5,
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",
@@ -13,7 +13,7 @@
             "state": {
               "Name": "tempered:pebble_block",
               "Properties": {
-                "stone_type": "0"
+                "stone_type": "1"
               }
             }
           }
@@ -27,7 +27,7 @@
             "predicates": [
               {
                 "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:air"
+                "blocks": ["minecraft:air", "minecraft:cave_air"]
               },
               {
                 "type": "minecraft:solid",

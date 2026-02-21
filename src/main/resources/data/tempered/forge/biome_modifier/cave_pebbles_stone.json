@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": ["tempered:pebble_cave_stone"],
+  "step": "underground_decoration"
+}

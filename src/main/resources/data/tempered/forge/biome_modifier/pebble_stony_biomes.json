@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tempered:is_stony",
+  "features": ["tempered:pebble_stony"],
+  "step": "vegetal_decoration"
+}

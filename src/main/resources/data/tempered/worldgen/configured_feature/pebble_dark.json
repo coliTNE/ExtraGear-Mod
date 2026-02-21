@@ -1,8 +1,8 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 16,
-    "xz_spread": 7,
+    "tries": 6,
+    "xz_spread": 5,
     "y_spread": 3,
     "feature": {
       "feature": {
@@ -13,7 +13,7 @@
             "state": {
               "Name": "tempered:pebble_block",
               "Properties": {
-                "biome_type": "2"
+                "stone_type": "2"
               }
             }
           }
@@ -32,6 +32,20 @@
               {
                 "type": "minecraft:solid",
                 "offset": [0, -1, 0]
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:sand", "minecraft:red_sand",
+                    "minecraft:gravel", "minecraft:snow_block",
+                    "minecraft:powder_snow",
+                    "minecraft:ice", "minecraft:packed_ice", "minecraft:blue_ice",
+                    "minecraft:soul_sand", "minecraft:soul_soil"
+                  ],
+                  "offset": [0, -1, 0]
+                }
               }
             ]
           }

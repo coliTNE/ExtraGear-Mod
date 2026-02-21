@@ -5,35 +5,38 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Set;
+
 /**
- * A small, flat block that sits on the ground surface (pebble or branch).
+ * Abstract base for small, flat blocks that sit on the ground surface.
  * - No collision (players walk through it)
  * - Breaks instantly
- * - Can sit on any block with a solid top face
- * - BIOME_TYPE property (0-3) controls visual variant per biome group
+ * - Can sit on any block with a solid top face (except invalid surfaces)
  * - Drops are defined by loot tables
+ *
+ * Subclasses define their own block state property for visual variants:
+ * - PebbleBlock uses STONE_TYPE (0-2)
+ * - BranchBlock uses WOOD_TYPE (0-5)
  */
-public class LooseItemBlock extends BushBlock {
-
-    public static final IntegerProperty BIOME_TYPE = IntegerProperty.create("biome_type", 0, 2);
+public abstract class LooseItemBlock extends BushBlock {
 
     private static final VoxelShape SHAPE = Block.box(2, 0, 2, 14, 2, 14);
 
+    private static final Set<Block> INVALID_SURFACES = Set.of(
+            Blocks.SAND, Blocks.RED_SAND, Blocks.GRAVEL,
+            Blocks.SNOW_BLOCK, Blocks.POWDER_SNOW,
+            Blocks.ICE, Blocks.PACKED_ICE, Blocks.BLUE_ICE,
+            Blocks.SOUL_SAND, Blocks.SOUL_SOIL
+    );
+
     public LooseItemBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BIOME_TYPE, 0));
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(BIOME_TYPE);
     }
 
     @Override
@@ -44,6 +47,8 @@ public class LooseItemBlock extends BushBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos below = pos.below();
-        return level.getBlockState(below).isFaceSturdy(level, below, Direction.UP);
+        BlockState belowState = level.getBlockState(below);
+        if (INVALID_SURFACES.contains(belowState.getBlock())) return false;
+        return belowState.isFaceSturdy(level, below, Direction.UP);
     }
 }

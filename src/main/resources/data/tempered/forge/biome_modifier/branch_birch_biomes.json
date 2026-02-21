@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tempered:has_birch_branches",
+  "features": ["tempered:branch_birch"],
+  "step": "vegetal_decoration"
+}

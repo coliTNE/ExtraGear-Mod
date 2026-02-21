@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tempered:is_medium_wood",
+  "features": ["tempered:pebble_medium"],
+  "step": "vegetal_decoration"
+}

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 6,
-    "xz_spread": 5,
+    "tries": 8,
+    "xz_spread": 7,
     "y_spread": 3,
     "feature": {
       "feature": {
@@ -11,9 +11,9 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "tempered:pebble_block",
+              "Name": "tempered:branch_block",
               "Properties": {
-                "stone_type": "0"
+                "wood_type": "0"
               }
             }
           }
