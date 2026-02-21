@@ -91,15 +91,61 @@ def rgb(r, g, b):
 # Texture generators (added incrementally)
 # ---------------------------------------------------------------------------
 
-# -- placeholder: generate_pebble will be added in next commit --
+def generate_pebble(out_dir):
+    """Small rounded pebble with 3-tone shading and surface speckle."""
+    c = new_canvas()
+
+    H = rgb(210, 205, 200)   # highlight (top-left lit)
+    B = rgb(160, 155, 150)   # base (body)
+    S = rgb(105, 100, 95)    # shadow (bottom-right)
+    K = rgb(130, 125, 120)   # speckle (surface detail)
+    D = rgb(85, 80, 75)      # dark edge accent
+
+    # Silhouette: small oval ~7x5px, centered in canvas
+    # Center of 16x16 is at (7.5, 7.5), so oval spans rows 5-9, cols 4-10
+    shape = {
+        5:  range(5, 10),       # narrow top (5 wide)
+        6:  range(4, 11),       # wider (7 wide)
+        7:  range(4, 11),       # widest row
+        8:  range(4, 11),       # wider
+        9:  range(5, 10),       # narrow bottom (5 wide)
+    }
+
+    # Fill all with base
+    for y, xs in shape.items():
+        for x in xs:
+            px(c, x, y, B)
+
+    # Highlight: top edge + top-left (light from top-left)
+    for x in range(5, 10):
+        px(c, x, 5, H)
+    px(c, 4, 6, H)
+    px(c, 5, 6, H)
+    px(c, 4, 7, H)
+
+    # Shadow: bottom edge + bottom-right
+    for x in range(6, 10):
+        px(c, x, 9, S)
+    px(c, 10, 8, S)
+    px(c, 10, 7, S)
+
+    # Dark accent on bottom-right corner
+    px(c, 9, 9, D)
+
+    # Surface speckle
+    for (sx, sy) in [(7, 6), (9, 7), (6, 8)]:
+        px(c, sx, sy, K)
+
+    save_png(os.path.join(out_dir, 'pebble.png'), c)
+
+
 # -- placeholder: generate_plant_fiber will be added later --
 # -- placeholder: generate_strange_branch will be added later --
 # -- placeholder: generate_primitive_axe will be added later --
 
 
 GENERATORS = {
-    # Will be populated as each texture is implemented:
-    # 'pebble': generate_pebble,
+    'pebble': generate_pebble,
     # 'plant_fiber': generate_plant_fiber,
     # 'strange_branch': generate_strange_branch,
     # 'primitive_axe': generate_primitive_axe,
