@@ -257,13 +257,57 @@ def generate_strange_branch(out_dir):
 # -- placeholder: generate_primitive_axe will be added later --
 
 
-# primitive_axe: will be hand-edited in LibreSprite (not generated here)
+def generate_primitive_axe(out_dir):
+    """Primitive axe — generates base for manual retouching in LibreSprite."""
+    c = new_canvas()
+
+    SH = rgb(185, 180, 175)
+    SB = rgb(140, 135, 130)
+    SS = rgb(95, 90, 85)
+    SE = rgb(70, 65, 60)
+
+    WH = rgb(155, 120, 70)
+    WB = rgb(115, 82, 42)
+
+    FB = rgb(80, 130, 40)
+    FD = rgb(50, 90, 22)
+
+    # Handle (bottom-left to upper-center)
+    handle = [(2, 14), (3, 13), (4, 12), (5, 11), (6, 10), (7, 9), (8, 8)]
+    for (x, y) in handle:
+        px(c, x, y, WB)
+        px(c, x, y - 1, WH)
+    px(c, 2, 13, TRANSPARENT)
+
+    # Stone head (grows from handle, extends up-left)
+    head = {
+        3: range(3, 6),
+        4: range(3, 7),
+        5: range(4, 8),
+        6: range(5, 9),
+        7: range(6, 9),
+    }
+    for y, xs in head.items():
+        for x in xs:
+            px(c, x, y, SB)
+
+    px(c, 3, 3, SE); px(c, 3, 4, SE); px(c, 4, 5, SE)
+    for x in range(4, 6):
+        px(c, x, 3, SH)
+    px(c, 4, 4, SH)
+    px(c, 8, 6, SS); px(c, 8, 7, SS); px(c, 7, 7, SS)
+
+    # Fiber lashing
+    px(c, 7, 8, FB); px(c, 8, 7, FD); px(c, 9, 7, FB); px(c, 9, 8, FD)
+
+    save_png(os.path.join(out_dir, 'primitive_axe.png'), c)
 
 
 GENERATORS = {
     'pebble': generate_pebble,
     'plant_fiber': generate_plant_fiber,
     'strange_branch': generate_strange_branch,
+    'primitive_axe': generate_primitive_axe,
 }
 
 
