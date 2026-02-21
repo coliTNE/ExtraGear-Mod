@@ -33,7 +33,9 @@ public enum ModToolTiers implements Tier {
         this.repairIngredient = repairIngredient;
     }
 
-    @Override public int getUses() { return TemperedConfig.PRIMITIVE_TOOL_DURABILITY.get(); }
+    @Override public int getUses() {
+        return TemperedConfig.SPEC.isLoaded() ? TemperedConfig.PRIMITIVE_TOOL_DURABILITY.get() : uses;
+    }
     @Override public float getSpeed() { return speed; }
     @Override public float getAttackDamageBonus() { return attackDamageBonus; }
     @Override public int getLevel() { return level; }

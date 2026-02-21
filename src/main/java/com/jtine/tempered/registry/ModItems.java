@@ -1,7 +1,6 @@
 package com.jtine.tempered.registry;
 
 import com.jtine.tempered.Tempered;
-import com.jtine.tempered.config.TemperedConfig;
 import com.jtine.tempered.item.PrimitiveAxeItem;
 import com.jtine.tempered.item.PrimitiveKnifeItem;
 import com.jtine.tempered.item.PrimitiveSlingItem;
@@ -41,7 +40,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> PRIMITIVE_SLING =
             ITEMS.register("primitive_sling", () -> new PrimitiveSlingItem(
-                    new Item.Properties().durability(TemperedConfig.SLING_DURABILITY.get())));
+                    new Item.Properties().durability(64)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
