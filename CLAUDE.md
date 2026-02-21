@@ -28,8 +28,9 @@ export JAVA_HOME="/c/Program Files/Eclipse Adoptium/jdk-17.0.18.8-hotspot"
 - Biome modifiers path: `data/<modid>/forge/biome_modifier/` NOT `data/forge/`.
 - RecipeType registration needs double cast: `(RecipeType<T>)(RecipeType<?>)` with `@SuppressWarnings`.
 - Client-only code MUST be in `client/` with `Dist.CLIENT` — crashes dedicated servers otherwise.
+- NEVER call `config.get()` during registration (DeferredRegister lambdas). Use `SPEC.isLoaded()` guard or hardcoded defaults.
 
-## GeckoLib 4.7.3 Patterns
+## GeckoLib 4.8.2 Patterns
 
 - Items: implement `GeoItem`, use `initializeClient()` with `IClientItemExtensions`.
 - Model JSON: `"parent": "builtin/entity"` in `models/item/`.

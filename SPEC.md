@@ -12,7 +12,7 @@ The mod is opinionated: installing it fundamentally changes how progression work
 | Component | Version |
 |-----------|---------|
 | Minecraft Forge | 1.20.1 (47.3.0) |
-| GeckoLib | 4.7.3 |
+| GeckoLib | 4.8.2 |
 | JDK | Eclipse Temurin 17 |
 | Mod ID | `tempered` |
 | Package | `com.jtine.tempered` |

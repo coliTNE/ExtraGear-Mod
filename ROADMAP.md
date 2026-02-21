@@ -11,7 +11,7 @@
 | **Tempered** (core) | Sistema de crafteo, estaciones, progresion, minerales | En desarrollo |
 | **Tempered Combat** | Mecanicas de combate, armas 1/2 manos, dual-wielding | Planeado (futuro) |
 
-**Dependencias:** GeckoLib 4.7.3 (animaciones de entidades, bloques, items, armaduras)
+**Dependencias:** GeckoLib 4.8.2 (animaciones de entidades, bloques, items, armaduras)
 
 ---
 

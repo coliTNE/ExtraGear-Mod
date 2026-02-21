@@ -8,8 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- GeckoLib 4.7.3 integration for animated models
+- GeckoLib 4.8.2 integration with MixinGradle refmap remapping
 - ForgeConfigSpec for configurable drop rates, durability, and damage values
+- MixinGradle plugin for proper SRG→official mapping in dev environment
 
 ### Changed
 - Reorganized registry classes (ModRecipeTypes, ModLootModifiers) into `registry/` package
